@@ -1,0 +1,27 @@
+<div class="main-wrapper" fxLayout="row">
+  <mat-grid-list fxLayout="row" fxFill cols="2" fxLayoutAlign="center center" >
+    <div fxFlex="100%">
+      <img src="/assets/Frame15.png" fxFill alt="image">
+    </div>
+
+    <div class="box" fxFlex="50%">
+      <img src="/assets/Frame16.png" alt="image">
+
+      <form [formGroup]="loginForm" class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="email" placeholder="E-mail">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput formControlName="senha" placeholder="Senha">
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" routerLinkActive="active" class="btn-block" (click)="login()">Entrar</button>
+      </form>
+    </div>
+  </mat-grid-list>
+<!-- routerLink="/home" -->
+
+
+</div>

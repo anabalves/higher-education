@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div>
+            <a class="item" href="/home">Home</a>
+            <a class="item" href="/lista-aluguel">Alugueis</a>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="descubra">
+            <h1 class="titulo">Histórico de Alugueis.</h1>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="meus-alugueis">
+            <!--<h1>Meus Aluguéis</h1>-->
+
+            <div class="section-cards">
+                <div *ngFor="let reserva of reservas" class="card">
+                    <div>
+                        <h3>{{reserva.titulo}}</h3>
+                    </div>
+                    <div>
+                        <img src="../../../assets/dune.png" alt="">
+                    </div>
+                    <div>
+                        <button class="botao-card"><b>{{reserva.situacao}}</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

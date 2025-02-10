@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioValorTotalDeDoacoesPorMes" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="660ec434-66fe-4af4-a45a-ddc2c2ca4cb2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DATABASE-MUSEUM"/>
+	<queryString language="SQL">
+		<![CDATA[CALL RELATORIO_VALOR_TOTAL_DOADO_POR_MES();]]>
+	</queryString>
+	<field name="VALOR_TOTAL_DOADO_POR_MES" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="VALOR_TOTAL_DOADO_POR_MES"/>
+		<property name="com.jaspersoft.studio.field.label" value="VALOR_TOTAL_DOADO_POR_MES"/>
+	</field>
+	<field name="ANO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ANO"/>
+		<property name="com.jaspersoft.studio.field.label" value="ANO"/>
+	</field>
+	<field name="MES" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MES"/>
+		<property name="com.jaspersoft.studio.field.label" value="MES"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="100">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="120" backcolor="#006699" uuid="a7803b7a-481d-4ca4-8e02-48bd74d3adc0"/>
+				<staticText>
+					<reportElement x="130" y="10" width="350" height="43" forecolor="#FFFFFF" uuid="43da38f2-f484-4c7f-8df1-f82a9a10d699"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de Doações]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="190" y="60" width="230" height="20" forecolor="#FFFFFF" uuid="734c6e85-f0c1-4557-b611-a584dfd1f17a"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Valor Total Doado Mês a Mês]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="237" y="90" width="100" height="18" forecolor="#FFFFFF" uuid="84f3e561-5bb5-41cc-a7a1-157f48e4165e"/>
+					<textElement textAlignment="Center">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm">
+					<reportElement x="296" y="90" width="95" height="18" forecolor="#FFFFFF" uuid="dd0c0449-0cde-4009-b186-c164f7618ad8"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e1421708-5932-4797-b89d-c0eadc724974"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e7837adf-8d70-495b-a858-d2d00caf50cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66cd825a-477b-4d30-ac1b-4a82d9ab3ca3"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR TOTAL DOADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="91cfad3c-1352-46d0-b5b0-1a13c84ceca9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70b3f262-1fee-416d-ac6d-807507c918e3"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MÊS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a38f3258-1ed9-49a9-93fd-265ee8a663fe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ae9e043-eb32-4258-82e9-ecbdc873a6b3"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="843753a2-4857-4ac0-83cb-bc7092c893c1"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="185" height="20" uuid="6e42bdc6-a112-4581-add2-e3bd0daea235">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="66cd825a-477b-4d30-ac1b-4a82d9ab3ca3"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VALOR_TOTAL_DOADO_POR_MES}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="185" y="0" width="185" height="20" uuid="e630bfc8-6baa-435a-9d9b-2f409adee4ae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70b3f262-1fee-416d-ac6d-807507c918e3"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MES}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="370" y="0" width="185" height="20" uuid="afc4e36d-167a-4e8b-b1d5-f15ae1ded384">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ae9e043-eb32-4258-82e9-ecbdc873a6b3"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ANO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="181b7ff7-eb45-40eb-a1db-a9931a2a4f10"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b4ba0c87-7645-4c34-a4a7-da37e5168ae6"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

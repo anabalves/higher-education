@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div>
+            <a class="item" href="/home">Home</a>
+            <a class="item" href="/lista-aluguel">Alugueis</a>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="descubra">
+            <h1 class="titulo">Descubra novos livros aqui.</h1>
+        </div>
+        <div class="div-livro">
+            <div class="livro-box">
+                <div>
+                    <img src="../../../assets/dune.png" alt="">
+                </div>
+                <div>
+                    <h3 class="titulo-livro">Análise e Desenvolvimento de Sistemas</h3>
+                </div>
+                <div>
+                    <p class="seu-curso">Seu curso</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="meus-alugueis">
+            <h1>Meus Aluguéis</h1>
+
+            <div class="section-cards">
+                <div *ngFor="let reserva of reservas" class="card">
+                    <div>
+                        <h3>{{reserva.titulo}}</h3>
+                    </div>
+                    <div>
+                        <img src="../../../assets/dune.png" alt="">
+                    </div>
+                    <div>
+                        <button class="botao-card"><a [href]="'/devolver/' + reserva.id">Devolver</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="meus-alugueis">
+            <h1 id="fim">Todos os livros</h1>
+            <div  class="section-cards">
+                <div *ngFor="let livro of livros" class="card">
+                    <div>
+                        <h3>{{livro.titulo}}</h3>
+                    </div>
+                    <div>
+                        <img src="../../../assets/dune.png" alt="">
+                    </div>
+                    <div>
+                        <button class="botao-card"><a [href]="'/consultar/' + livro.id">Ver Detalhes</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Cadastrar</mat-card-title>
+      </mat-card-header>
+  
+      <form [formGroup]="registerForm" class="example-form">
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="nome" placeholder="Nome">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="sobrenome" placeholder="Sobrenome">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="cpf" placeholder="CPF">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="telefone" placeholder="Telefone">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="cep" placeholder="CEP">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="endereco" placeholder="Endereco">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="numeroEndereco" placeholder="Numero Endereco">
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="complemento" placeholder="Complemento">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="cidade" placeholder="Cidade">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="estado" placeholder="Estado">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="email" placeholder="Email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="emailAlternativo" placeholder="Email Alternativo">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="senha" placeholder="Senha">
+          </mat-form-field>
+
+        </mat-card-content>
+  
+        <button mat-stroked-button color="accent" class="btn-block" (click)="register()" routerLinkActive="active">Cadastrar</button>
+  
+      </form>
+    </mat-card>
+  </div>

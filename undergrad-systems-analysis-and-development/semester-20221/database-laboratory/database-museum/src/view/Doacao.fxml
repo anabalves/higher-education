@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1010.0" style="-fx-background-color: #004085;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DoacaoController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="215.0" style="-fx-background-color: #004085;">
+            <children>
+                <RadioButton fx:id="btnHome" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Home" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="btnArte" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Arte" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnReserva" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Reserva" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnDoacao" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" selected="true" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Doação" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnFuncionario" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Funcionário" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <VBox prefHeight="251.0" prefWidth="215.0" />
+                <RadioButton fx:id="btnSair" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Sair" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+            </children>
+        </VBox>
+        <VBox alignment="CENTER_LEFT" layoutX="215.0" prefHeight="600.0" prefWidth="785.0">
+            <children>
+                <VBox alignment="BOTTOM_CENTER" prefHeight="579.0" prefWidth="785.0" style="-fx-background-color: #FFF; -fx-background-radius: 25;" stylesheets="@styles/style3.css">
+                    <children>
+                        <Pane prefHeight="59.0" prefWidth="785.0">
+                            <children>
+                                <TextField fx:id="tfBuscarDoacao" layoutX="287.0" layoutY="17.0" prefHeight="25.0" prefWidth="473.0" />
+                                <Button fx:id="btnAdicionar" layoutX="28.0" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Adicionar" />
+                                <Label fx:id="lblBuscarDoacao" layoutX="196.0" layoutY="17.0" prefHeight="25.0" prefWidth="80.0" text="Buscar Doação" />
+                                <Button fx:id="btnRecarregar" layoutX="114.0" layoutY="16.0" mnemonicParsing="false" text="🔄" />
+                                <Button fx:id="btnImprimir" layoutX="154.0" layoutY="16.0" mnemonicParsing="false" text="🖶" />
+                            </children>
+                        </Pane>
+                        <TableView fx:id="tbDoacoa" prefHeight="522.0" prefWidth="785.0" style="-fx-background-radius: 25;" stylesheets="@styles/style3.css">
+                            <columns>
+                                <TableColumn fx:id="tcId" prefWidth="75.0" text="ID" />
+                                <TableColumn fx:id="tcNomeInstituicao" prefWidth="123.0" text="Nome Instituição" />
+                                <TableColumn fx:id="tcCnpj" prefWidth="114.0" text="CNPJ" />
+                                <TableColumn fx:id="tcValorDoado" prefWidth="106.0" text="Valor Doado (R$)" />
+                                <TableColumn fx:id="tcDataDoacao" prefWidth="87.0" text="Data Doação" />
+                                <TableColumn fx:id="tcDescricao" prefWidth="72.0" text="Descrição" />
+                                <TableColumn fx:id="tcAcoes" prefWidth="117.0" text="Ações" />
+                            </columns>
+                        </TableView>
+                    </children></VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

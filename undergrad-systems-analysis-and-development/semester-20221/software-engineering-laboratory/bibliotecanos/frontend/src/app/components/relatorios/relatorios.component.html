@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Relatórios</h1>
+    </header>
+
+    <section>
+        <h2>Empréstimos</h2>
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Nome do usuário</td>
+                <td>Título</td>
+                <td>Situação</td>
+                <td>Data do Empréstimo</td>
+                <td>Data da Devolução</td>
+            </tr>
+            <tr *ngFor="let emprestimo of emprestimos">
+                <td>{{emprestimo.id}}</td>
+                <td>{{emprestimo.nomeUsuario}}</td>
+                <td>{{emprestimo.titulo}}</td>
+                <td>{{emprestimo.situacao}}</td>
+                <td>{{emprestimo.dataEmprestimo}}</td>
+                <td>{{emprestimo.dataDevolucao}}</td>
+            </tr>
+        </table>       
+    </section>
+
+    <section>
+        <h2>Acervos</h2>
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Título</td>
+                <td>Autor</td>
+                <td>Descrição</td>
+                <td>Editora</td>
+                <td>Gênero</td>
+                <td>Ano de Publicação</td>
+                <td>ISBN</td>
+            </tr>
+            <tr *ngFor="let acervo of acervos">
+                <td>{{acervo.id}}</td>
+                <td>{{acervo.titulo}}</td>
+                <td>{{acervo.autor}}</td>
+                <td>{{acervo.descricao}}</td>
+                <td>{{acervo.editora}}</td>
+                <td>{{acervo.genero}}</td>
+                <td>{{acervo.anoPublicacao}}</td>
+                <td>{{acervo.isbn}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Saídas</h2>
+        <table border="1">
+            <tr>
+                <td>Saída</td>
+                <td>Título</td>
+            </tr>
+            <tr *ngFor="let saida of saidas">
+                <td>{{saida.saida}}</td>
+                <td>{{saida.titulo}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Usuário</h2>
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Nome de Usuário</td>
+                <td>Título</td>
+                <td>Situação</td>
+                <td>Data de Empréstimo</td>
+                <td>Data de Devolução</td>
+            </tr>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nomeUsuario}}</td>
+                <td>{{usuario.titulo}}</td>
+                <td>{{usuario.situacao}}</td>
+                <td>{{usuario.dataEmprestimo}}</td>
+                <td>{{usuario.dataDevolucao}}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div class="botao">
+            <button (click)="imprimir()">Imprimir</button>
+        </div>
+    </section>
+
+    
+</body>
+</html>

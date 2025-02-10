@@ -1,0 +1,692 @@
+mysql> SOURCE C:/TEMP/ESCOLA.SQL;
+Query OK, 1 row affected (0.01 sec)
+
+Database changed
+Query OK, 0 rows affected (0.39 sec)
+
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS (matricula, nome) VALUES (11,"Maria Rios");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS (matricula, nome, nota1)   VALUES (16, "Francisco Lima", 7.5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES (12, "Renato Cardoso", "m", "2018-10-16", "ADS",7.5,9.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=20, nome="Marta Mendon‡a", sexo="f", datanasc="2010-12-25";
+Query OK, 1 row affected (0.01 sec)
+
+mysql> UPDATE TABALUNOS  SET nota2 = 7.0 WHERE matricula > 14;
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        11 | Maria Rios        | m    | NULL       | NULL  |  NULL |  NULL |
+|        12 | Renato Cardoso    | m    | 2018-10-16 | ADS   |  7.50 |  9.00 |
+|        16 | Francisco Lima    | m    | NULL       | NULL  |  7.50 |  7.00 |
+|        20 | Marta Mendon‡a    | f    | 2010-12-25 | NULL  |  NULL |  7.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+14 rows in set (0.00 sec)
+
+mysql> UPDATE TABALUNOS  SET sexo="f", datanasc ="1969-12-31" WHERE matricula=11;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE TABALUNOS SET  nota2  = nota2 + 0.5 WHERE  nota1 < 8.0;
+Query OK, 9 rows affected (0.10 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+
+mysql> DELETE FROM TABALUNOS WHERE  matricula=20;
+Query OK, 1 row affected (0.10 sec)
+
+mysql>  DELETE FROM  TABALUNOS  WHERE Datanasc < "1970-01-01";
+Query OK, 1 row affected (0.11 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        12 | Renato Cardoso    | m    | 2018-10-16 | ADS   |  7.50 |  9.50 |
+|        16 | Francisco Lima    | m    | NULL       | NULL  |  7.50 |  7.50 |
++-----------+-------------------+------+------------+-------+-------+-------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT  nome FROM TABALUNOS WHERE MATRICULA > 4 AND CURSO="ADS" AND sexo="M";
++----------------+
+| nome           |
++----------------+
+| Paulo Pavanini |
+| Renato Cardoso |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT  nome, datanasc FROM TABALUNOS WHERE nota1 >= 6 AND matricula < 8  AND sexo ="M";
++-------------------+------------+
+| nome              | datanasc   |
++-------------------+------------+
+| Renato Paiva      | 1998-10-10 |
+| Alexandre Cardoso | 1998-01-10 |
+| Carlos Carvalho   | 1996-05-20 |
+| Paulo Pavanini    | 1995-08-15 |
++-------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT  nome, nota1, nota2,curso  FROM TABALUNOS  WHERE  ((nota1 + nota2)/2)  >=  8;
++-------------------+-------+-------+-------+
+| nome              | nota1 | nota2 | curso |
++-------------------+-------+-------+-------+
+| Alexandre Cardoso |  8.00 | 10.00 | ADS   |
+| Paulo Pavanini    |  7.00 |  9.50 | ADS   |
+| Ana Luiza Santos  |  8.00 |  8.50 | JOG   |
+| Renato Cardoso    |  7.50 |  9.50 | ADS   |
++-------------------+-------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT  nome,matricula, curso, nota1 FROM TABALUNOS WHERE  nota1  BETWEEN  4.00  AND  6.00;
++-------------------+-----------+-------+-------+
+| nome              | matricula | curso | nota1 |
++-------------------+-----------+-------+-------+
+| Renato Paiva      |         1 | ADS   |  6.00 |
+| Marcelo Guimaraes |         2 | SEG   |  5.00 |
+| Mariana Menezes   |         6 | ADS   |  4.00 |
+| Deise Guimaraes   |         7 | SEG   |  5.00 |
+| Vera Mendes       |         9 | COM   |  6.00 |
++-------------------+-----------+-------+-------+
+5 rows in set (0.08 sec)
+
+mysql> SELECT  nome, matricula, curso, nota1   FROM  TABALUNOS WHERE  nota1 >= 4.00 and nota1 <= 6.00;
++-------------------+-----------+-------+-------+
+| nome              | matricula | curso | nota1 |
++-------------------+-----------+-------+-------+
+| Renato Paiva      |         1 | ADS   |  6.00 |
+| Marcelo Guimaraes |         2 | SEG   |  5.00 |
+| Mariana Menezes   |         6 | ADS   |  4.00 |
+| Deise Guimaraes   |         7 | SEG   |  5.00 |
+| Vera Mendes       |         9 | COM   |  6.00 |
++-------------------+-----------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT  matricula, nome, curso FROM  TABALUNOS WHERE  matricula IN  (3,8);
++-----------+-------------------+-------+
+| matricula | nome              | curso |
++-----------+-------------------+-------+
+|         3 | Alexandre Cardoso | ADS   |
+|         8 | Ana Luiza Santos  | JOG   |
++-----------+-------------------+-------+
+2 rows in set (0.05 sec)
+
+mysql> SELECT  matricula, nome, curso FROM  TABALUNOS WHERE matricula = 3 or matricula = 8;
++-----------+-------------------+-------+
+| matricula | nome              | curso |
++-----------+-------------------+-------+
+|         3 | Alexandre Cardoso | ADS   |
+|         8 | Ana Luiza Santos  | JOG   |
++-----------+-------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT  nome, datanasc  FROM  TABALUNOS  WHERE nome   LIKE  "R%";
++----------------+------------+
+| nome           | datanasc   |
++----------------+------------+
+| Renato Paiva   | 1998-10-10 |
+| Renato Cardoso | 2018-10-16 |
++----------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT  nome, curso FROM TABALUNOS WHERE nome LIKE "%ana%";
++------------------+-------+
+| nome             | curso |
++------------------+-------+
+| Mariana Menezes  | ADS   |
+| Ana Luiza Santos | JOG   |
+| Juliana Santos   | ADS   |
++------------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT  nome, curso FROM TABALUNOS  WHERE curso  IS NULL;
++----------------+-------+
+| nome           | curso |
++----------------+-------+
+| Francisco Lima | NULL  |
++----------------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT nome, curso FROM TABALUNOS WHERE  curso  IS  NOT NULL;
++-------------------+-------+
+| nome              | curso |
++-------------------+-------+
+| Renato Paiva      | ADS   |
+| Marcelo Guimaraes | SEG   |
+| Alexandre Cardoso | ADS   |
+| Carlos Carvalho   | SEG   |
+| Paulo Pavanini    | ADS   |
+| Mariana Menezes   | ADS   |
+| Deise Guimaraes   | SEG   |
+| Ana Luiza Santos  | JOG   |
+| Vera Mendes       | COM   |
+| Juliana Santos    | ADS   |
+| Renato Cardoso    | ADS   |
++-------------------+-------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT Nome, nota1,nota2, curso FROM TABALUNOS   WHERE  nota1 BETWEEN 6 AND 10  AND (curso ="ADS" OR curso = "COM");
++-------------------+-------+-------+-------+
+| Nome              | nota1 | nota2 | curso |
++-------------------+-------+-------+-------+
+| Renato Paiva      |  6.00 |  7.50 | ADS   |
+| Alexandre Cardoso |  8.00 | 10.00 | ADS   |
+| Paulo Pavanini    |  7.00 |  9.50 | ADS   |
+| Vera Mendes       |  6.00 |  7.00 | COM   |
+| Juliana Santos    |  8.00 |  4.00 | ADS   |
+| Renato Cardoso    |  7.50 |  9.50 | ADS   |
++-------------------+-------+-------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM  TABALUNOS WHERE  datanasc ="1998-10-10";
++-----------+--------------+------+------------+-------+-------+-------+
+| matricula | nome         | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+--------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
++-----------+--------------+------+------------+-------+-------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DISTINCT curso  from TABALUNOS;
++-------+
+| curso |
++-------+
+| ADS   |
+| SEG   |
+| JOG   |
+| COM   |
+| NULL  |
++-------+
+5 rows in set (0.05 sec)
+
+mysql> SELECT nome,  curso FROM TABALUNOS ORDER BY nome DESC;
++-------------------+-------+
+| nome              | curso |
++-------------------+-------+
+| Vera Mendes       | COM   |
+| Renato Paiva      | ADS   |
+| Renato Cardoso    | ADS   |
+| Paulo Pavanini    | ADS   |
+| Mariana Menezes   | ADS   |
+| Marcelo Guimaraes | SEG   |
+| Juliana Santos    | ADS   |
+| Francisco Lima    | NULL  |
+| Deise Guimaraes   | SEG   |
+| Carlos Carvalho   | SEG   |
+| Ana Luiza Santos  | JOG   |
+| Alexandre Cardoso | ADS   |
++-------------------+-------+
+12 rows in set (0.00 sec)
+
+mysql>  SELECT nome  AS  nome_do_aluno FROM TABALUNOS; 
++-------------------+
+| nome_do_aluno     |
++-------------------+
+| Renato Paiva      |
+| Marcelo Guimaraes |
+| Alexandre Cardoso |
+| Carlos Carvalho   |
+| Paulo Pavanini    |
+| Mariana Menezes   |
+| Deise Guimaraes   |
+| Ana Luiza Santos  |
+| Vera Mendes       |
+| Juliana Santos    |
+| Renato Cardoso    |
+| Francisco Lima    |
++-------------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT  nome AS "Nome do aluno", nota1 AS "1§ Bim", nota2 AS "2§ Bim"  FROM TABALUNOS;
++-------------------+--------+--------+
+| Nome do aluno     | 1§ Bim | 2§ Bim |
++-------------------+--------+--------+
+| Renato Paiva      |   6.00 |   7.50 |
+| Marcelo Guimaraes |   5.00 |   8.50 |
+| Alexandre Cardoso |   8.00 |  10.00 |
+| Carlos Carvalho   |   6.50 |   9.00 |
+| Paulo Pavanini    |   7.00 |   9.50 |
+| Mariana Menezes   |   4.00 |   8.50 |
+| Deise Guimaraes   |   5.00 |   8.50 |
+| Ana Luiza Santos  |   8.00 |   8.50 |
+| Vera Mendes       |   6.00 |   7.00 |
+| Juliana Santos    |   8.00 |   4.00 |
+| Renato Cardoso    |   7.50 |   9.50 |
+| Francisco Lima    |   7.50 |   7.50 |
++-------------------+--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT  nome AS "Nome do aluno", (nota1+nota2) / 2 AS "Media Final" FROM TABALUNOS;
++-------------------+-------------+
+| Nome do aluno     | Media Final |
++-------------------+-------------+
+| Renato Paiva      |    6.750000 |
+| Marcelo Guimaraes |    6.750000 |
+| Alexandre Cardoso |    9.000000 |
+| Carlos Carvalho   |    7.750000 |
+| Paulo Pavanini    |    8.250000 |
+| Mariana Menezes   |    6.250000 |
+| Deise Guimaraes   |    6.750000 |
+| Ana Luiza Santos  |    8.250000 |
+| Vera Mendes       |    6.500000 |
+| Juliana Santos    |    6.000000 |
+| Renato Cardoso    |    8.500000 |
+| Francisco Lima    |    7.500000 |
++-------------------+-------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT  COUNT(*) as total FROM TABALUNOS;
++-------+
+| total |
++-------+
+|    12 |
++-------+
+1 row in set (0.09 sec)
+
+mysql> SELECT  COUNT(curso) as total FROM TABALUNOS;
++-------+
+| total |
++-------+
+|    11 |
++-------+
+1 row in set (0.05 sec)
+
+mysql> SELECT  COUNT(distinct sexo) as total FROM TABALUNOS;
++-------+
+| total |
++-------+
+|     2 |
++-------+
+1 row in set (0.08 sec)
+
+mysql> SELECT  MIN(nota1) as minimo FROM  TABALUNOS;
++--------+
+| minimo |
++--------+
+|   4.00 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  MAX(nota2) as maximo  FROM TABALUNOS;
++--------+
+| maximo |
++--------+
+|  10.00 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  AVG(nota1) as  "media da nota 1"  FROM  TABALUNOS;
++-----------------+
+| media da nota 1 |
++-----------------+
+|        6.541667 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  SUM(nota2) as "soma da nota 2" FROM TABALUNOS;
++----------------+
+| soma da nota 2 |
++----------------+
+|          98.00 |
++----------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT curso as Cursos,  AVG((nota1+nota2)/2)  as media FROM TABALUNOS  GROUP BY  curso;
++--------+--------------+
+| Cursos | media        |
++--------+--------------+
+| ADS    | 7.4583333333 |
+| SEG    | 7.0833333333 |
+| JOG    | 8.2500000000 |
+| COM    | 6.5000000000 |
+| NULL   | 7.5000000000 |
++--------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT curso as Cursos,  AVG((nota1+nota2)/2)  as media FROM TABALUNOS  GROUP BY  curso HAVING COUNT(*)  >  3;
++--------+--------------+
+| Cursos | media        |
++--------+--------------+
+| ADS    | 7.4583333333 |
++--------+--------------+
+1 row in set (0.06 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        12 | Renato Cardoso    | m    | 2018-10-16 | ADS   |  7.50 |  9.50 |
+|        16 | Francisco Lima    | m    | NULL       | NULL  |  7.50 |  7.50 |
++-----------+-------------------+------+------------+-------+-------+-------+
+12 rows in set (0.00 sec)
+
+mysql> DELETE FROM TABALUNOS WHERE  matricula=12;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DELETE FROM TABALUNOS WHERE  matricula=16;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(11,"Ricardo Satoshi","m","2021-10-06","ADS",10.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(12,"Leandro Colevati","m","2021-10-06","ADS",10.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(13,"Antonio Rodrigues","m","2021-10-06","ADS",10.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(14,"Wellington De Oliveira","m","2021-10-06","ADS",10.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(15,"Claudio Benossi","m","2021-10-06","ADS",10.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+15 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=16, nome="Eliane Euz‚bio", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=17, nome="Cristina de Oliveira", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=18, nome="Sonia Cristina", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=19, nome="Ana Maria Scardino", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=20, nome="Kelly Cristina", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS ORDER BY NOME;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  9.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT matricula, nota1, nota2, ((nota1 + nota2)/2)  AS 'Media Final' FROM TABALUNOS;
++-----------+-------+-------+-------------+
+| matricula | nota1 | nota2 | Media Final |
++-----------+-------+-------+-------------+
+|         1 |  6.00 |  7.50 |    6.750000 |
+|         2 |  5.00 |  8.50 |    6.750000 |
+|         3 |  8.00 | 10.00 |    9.000000 |
+|         4 |  6.50 |  9.00 |    7.750000 |
+|         5 |  7.00 |  9.50 |    8.250000 |
+|         6 |  4.00 |  8.50 |    6.250000 |
+|         7 |  5.00 |  8.50 |    6.750000 |
+|         8 |  8.00 |  8.50 |    8.250000 |
+|         9 |  6.00 |  7.00 |    6.500000 |
+|        10 |  8.00 |  4.00 |    6.000000 |
+|        11 | 10.00 | 10.00 |   10.000000 |
+|        12 | 10.00 | 10.00 |   10.000000 |
+|        13 | 10.00 | 10.00 |   10.000000 |
+|        14 | 10.00 | 10.00 |   10.000000 |
+|        15 | 10.00 | 10.00 |   10.000000 |
+|        16 | 10.00 | 10.00 |   10.000000 |
+|        17 | 10.00 | 10.00 |   10.000000 |
+|        18 | 10.00 | 10.00 |   10.000000 |
+|        19 | 10.00 | 10.00 |   10.000000 |
+|        20 | 10.00 | 10.00 |   10.000000 |
++-----------+-------+-------+-------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT  nome, datanasc FROM TABALUNOS WHERE curso="ADS" AND sexo="f";
++----------------------+------------+
+| nome                 | datanasc   |
++----------------------+------------+
+| Mariana Menezes      | 1998-12-25 |
+| Juliana Santos       | 1998-08-20 |
+| Eliane Euz‚bio       | 2010-12-25 |
+| Cristina de Oliveira | 2010-12-25 |
+| Sonia Cristina       | 2010-12-25 |
+| Ana Maria Scardino   | 2010-12-25 |
+| Kelly Cristina       | 2010-12-25 |
++----------------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT  nome, curso, ((nota1 + nota2)/2)  AS 'media final' FROM TABALUNOS WHERE sexo="m";
++------------------------+-------+-------------+
+| nome                   | curso | media final |
++------------------------+-------+-------------+
+| Renato Paiva           | ADS   |    6.750000 |
+| Marcelo Guimaraes      | SEG   |    6.750000 |
+| Alexandre Cardoso      | ADS   |    9.000000 |
+| Carlos Carvalho        | SEG   |    7.750000 |
+| Paulo Pavanini         | ADS   |    8.250000 |
+| Ricardo Satoshi        | ADS   |   10.000000 |
+| Leandro Colevati       | ADS   |   10.000000 |
+| Antonio Rodrigues      | ADS   |   10.000000 |
+| Wellington De Oliveira | ADS   |   10.000000 |
+| Claudio Benossi        | ADS   |   10.000000 |
++------------------------+-------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT matricula AS "#", nome, datanasc AS "NASCIMENTO" FROM TABALUNOS WHERE curso IS NOT NULL;
++----+------------------------+------------+
+| #  | nome                   | NASCIMENTO |
++----+------------------------+------------+
+|  1 | Renato Paiva           | 1998-10-10 |
+|  2 | Marcelo Guimaraes      | 1997-10-20 |
+|  3 | Alexandre Cardoso      | 1998-01-10 |
+|  4 | Carlos Carvalho        | 1996-05-20 |
+|  5 | Paulo Pavanini         | 1995-08-15 |
+|  6 | Mariana Menezes        | 1998-12-25 |
+|  7 | Deise Guimaraes        | 1997-01-25 |
+|  8 | Ana Luiza Santos       | 1996-05-13 |
+|  9 | Vera Mendes            | 1997-11-01 |
+| 10 | Juliana Santos         | 1998-08-20 |
+| 11 | Ricardo Satoshi        | 2021-10-06 |
+| 12 | Leandro Colevati       | 2021-10-06 |
+| 13 | Antonio Rodrigues      | 2021-10-06 |
+| 14 | Wellington De Oliveira | 2021-10-06 |
+| 15 | Claudio Benossi        | 2021-10-06 |
+| 16 | Eliane Euz‚bio         | 2010-12-25 |
+| 17 | Cristina de Oliveira   | 2010-12-25 |
+| 18 | Sonia Cristina         | 2010-12-25 |
+| 19 | Ana Maria Scardino     | 2010-12-25 |
+| 20 | Kelly Cristina         | 2010-12-25 |
++----+------------------------+------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE nome LIKE 'a%';
++-----------+--------------------+------+------------+-------+-------+-------+
+| matricula | nome               | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+--------------------+------+------------+-------+-------+-------+
+|         3 | Alexandre Cardoso  | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         8 | Ana Luiza Santos   | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|        13 | Antonio Rodrigues  | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        19 | Ana Maria Scardino | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
++-----------+--------------------+------+------------+-------+-------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE nome LIKE 'e%';
++-----------+----------------+------+------------+-------+-------+-------+
+| matricula | nome           | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+----------------+------+------------+-------+-------+-------+
+|        16 | Eliane Euz‚bio | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
++-----------+----------------+------+------------+-------+-------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE nome LIKE 'i%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE nome LIKE 'o%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE nome LIKE 'u%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS WHERE matricula % 2 = 1;
++-----------+----------------------+------+------------+-------+-------+-------+
+| matricula | nome                 | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+----------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva         | m    | 1998-10-10 | ADS   |  6.00 |  7.50 |
+|         3 | Alexandre Cardoso    | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         5 | Paulo Pavanini       | m    | 1995-08-15 | ADS   |  7.00 |  9.50 |
+|         7 | Deise Guimaraes      | f    | 1997-01-25 | SEG   |  5.00 |  8.50 |
+|         9 | Vera Mendes          | f    | 1997-11-01 | COM   |  6.00 |  7.00 |
+|        11 | Ricardo Satoshi      | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        13 | Antonio Rodrigues    | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        15 | Claudio Benossi      | m    | 2021-10-06 | ADS   | 10.00 | 10.00 |
+|        17 | Cristina de Oliveira | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
+|        19 | Ana Maria Scardino   | f    | 2010-12-25 | ADS   | 10.00 | 10.00 |
++-----------+----------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT nome FROM TABALUNOS WHERE nome LIKE "%car%";
++--------------------+
+| nome               |
++--------------------+
+| Alexandre Cardoso  |
+| Carlos Carvalho    |
+| Ricardo Satoshi    |
+| Ana Maria Scardino |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> quit

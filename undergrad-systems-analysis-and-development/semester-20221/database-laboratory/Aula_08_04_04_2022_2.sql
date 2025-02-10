@@ -1,0 +1,44 @@
+/* Conecta ao banco DB_UNIVERSIDADE */
+USE AULA_08_04_04_2022;
+
+/* Criar Cursor Basico
+Utilizando o modelo criado em sala
+Criar PROCEDURE utilizando cursor para :
+2. Obter os códigos dos professores que são do departamento de código 'INF01' e
+que ministraram ao menos uma turma em 2002/1.
+(exercicio 2 da primeira lista de queries) */
+DELIMITER $$
+CREATE PROCEDURE COD_PROF_INF01_20021()
+BEGIN
+	DECLARE DONE INT DEFAULT 0;
+	DECLARE C_COD_PROF INT;
+
+    DECLARE C1 CURSOR FOR 
+		SELECT DISTINCT COD_PROF
+        FROM TB_PROF_TURMA 
+        WHERE COD_DEPTO = 'INF01' 
+		AND ANO_SEM = 20021;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET DONE = 1;
+    
+OPEN C1;
+
+CREATE TEMPORARY TABLE TB_RESULT (
+	 R_COD_PROF INT
+);
+
+	WHILE DONE != 1 do
+		FETCH C1 INTO C_COD_PROF;
+        INSERT INTO TB_RESULT (R_COD_PROF) VALUES (C_COD_PROF);
+    END WHILE;
+
+CLOSE C1;
+
+   SELECT DISTINCT R_COD_PROF AS COD_PROF FROM TB_RESULT;
+   
+DROP TEMPORARY TABLE TB_RESULT;
+
+END$$
+DELIMITER ;
+
+CALL COD_PROF_INF01_20021();
+DROP PROCEDURE COD_PROF_INF01_20021;

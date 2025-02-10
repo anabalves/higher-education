@@ -1,0 +1,694 @@
+mysql> SOURCE C:/TEMP/ESCOLA.SQL;
+Query OK, 1 row affected (0.02 sec)
+
+Database changed
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT matricula, nota1, nota2, (nota1+nota2) / 2 AS "Media" FROM TABALUNOS ORDER BY matricula DESC;
++-----------+-------+-------+----------+
+| matricula | nota1 | nota2 | Media    |
++-----------+-------+-------+----------+
+|        10 |  8.00 |  4.00 | 6.000000 |
+|         9 |  6.00 |  6.50 | 6.250000 |
+|         8 |  8.00 |  8.50 | 8.250000 |
+|         7 |  5.00 |  8.00 | 6.500000 |
+|         6 |  4.00 |  8.00 | 6.000000 |
+|         5 |  7.00 |  9.00 | 8.000000 |
+|         4 |  6.50 |  8.50 | 7.500000 |
+|         3 |  8.00 | 10.00 | 9.000000 |
+|         2 |  5.00 |  8.00 | 6.500000 |
+|         1 |  6.00 |  7.00 | 6.500000 |
++-----------+-------+-------+----------+
+10 rows in set (0.36 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM TABALUNOS ORDER BY SEXO,NOME ASC;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS ORDER BY curso ASC;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS ORDER BY nome DESC;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|         1 | Renato Paiva      | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         5 | Paulo Pavanini    | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         8 | Ana Luiza Santos  | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         3 | Alexandre Cardoso | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(11,"Ricardo Satoshi","m","2021-10-06","ADS",9.0,9.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(12,"Leandro Colevati","m","2021-10-06","ADS",8.0,8.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(13,"Antonio Rodrigues","m","2021-10-06","ADS",9.0,9.0);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(14,"Wellington De Oliveira","m","2021-10-06","ADS",8.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(15,"Claudio Benossi","m","2021-10-06","ADS",9.0,10.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=16, nome="Eliane Euz‚bio", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=10.0, nota2=9.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=17, nome="Cristina de Oliveira", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=8.0, nota2=9.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=18, nome="Sonia Cristina", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=8.5, nota2=9.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=19, nome="Ana Maria Scardino", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=9.0, nota2=9.5;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=20, nome="Kelly Cristina", sexo="f", datanasc= "2010-12-25", curso="ADS", nota1=8.0, nota2=9.5;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | ADS   |  9.00 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.00 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.00 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.00 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.00 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.00 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.00 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.00 sec)
+
+mysql> UPDATE TABALUNOS SET curso = "SEG" WHERE matricula = 11;
+Query OK, 1 row affected (0.37 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  4.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.00 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.00 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.00 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.00 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.00 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.00 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.00 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.01 sec)
+
+mysql> UPDATE TABALUNOS SET nota2 = 8.0 WHERE datanasc = "1998-08-20";
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         1 | Renato Paiva           | m    | 1998-10-10 | ADS   |  6.00 |  7.00 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.00 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.00 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.00 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.00 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.00 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.00 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.00 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.01 sec)
+
+mysql> DELETE FROM TABALUNOS WHERE datanasc = "1998-10-10";
+Query OK, 1 row affected (0.36 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.00 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.00 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  6.50 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.00 |  9.00 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.00 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.00 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.00 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.00 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.00 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.00 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.00 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.00 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.00 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.00 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.00 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.00 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.00 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+19 rows in set (0.00 sec)
+
+mysql> UPDATE TABALUNOS SET nota1 = nota1 + 0.5 WHERE nota1 < 10.0;
+Query OK, 18 rows affected (0.10 sec)
+Rows matched: 18  Changed: 18  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         5 | Paulo Pavanini         | m    | 1995-08-15 | ADS   |  7.50 |  9.00 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT nome, datanasc FROM TABALUNOS WHERE datanasc LIKE '1997%';
++-------------------+------------+
+| nome              | datanasc   |
++-------------------+------------+
+| Marcelo Guimaraes | 1997-10-20 |
+| Deise Guimaraes   | 1997-01-25 |
+| Vera Mendes       | 1997-11-01 |
++-------------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM TABALUNOS WHERE datanasc LIKE '1995%';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+18 rows in set (0.01 sec)
+
+mysql> SELECT nome, sexo, datanasc FROM TABALUNOS WHERE datanasc LIKE '%-01-%';
++-------------------+------+------------+
+| nome              | sexo | datanasc   |
++-------------------+------+------------+
+| Alexandre Cardoso | m    | 1998-01-10 |
+| Deise Guimaraes   | f    | 1997-01-25 |
++-------------------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT curso FROM TABALUNOS;
++-------+
+| curso |
++-------+
+| SEG   |
+| ADS   |
+| SEG   |
+| ADS   |
+| SEG   |
+| JOG   |
+| COM   |
+| ADS   |
+| SEG   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
+| ADS   |
++-------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT *, (nota1+nota2) / 2 AS "Media"  FROM TABALUNOS WHERE  (nota1+nota2)/2 > 6 AND (nota1+nota2)/2 < 8;
++-----------+-------------------+------+------------+-------+-------+-------+----------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 | Media    |
++-----------+-------------------+------+------------+-------+-------+-------+----------+
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.50 |  8.00 | 6.750000 |
+|         4 | Carlos Carvalho   | m    | 1996-05-20 | SEG   |  7.00 |  8.50 | 7.750000 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.50 |  8.00 | 6.250000 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.50 |  8.00 | 6.750000 |
+|         9 | Vera Mendes       | f    | 1997-11-01 | COM   |  6.50 |  6.50 | 6.500000 |
++-----------+-------------------+------+------------+-------+-------+-------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *  FROM TABALUNOS WHERE curso = "COM" OR curso = "JOG";
++-----------+------------------+------+------------+-------+-------+-------+
+| matricula | nome             | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------+------+------------+-------+-------+-------+
+|         8 | Ana Luiza Santos | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes      | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
++-----------+------------------+------+------------+-------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+18 rows in set (0.00 sec)
+
+mysql> DELETE FROM TABALUNOS WHERE curso = "ADS" AND (nota1+nota2)/2 < 5;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM TABALUNOS ORDER BY CURSO,SEXO,NOME ASC;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM TABALUNOS WHERE nota1 = 8 OR nota2 = 8;
++-----------+-------------------+------+------------+-------+-------+-------+
+| matricula | nome              | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+-------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         6 | Mariana Menezes   | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes   | f    | 1997-01-25 | SEG   |  5.50 |  8.00 |
+|        10 | Juliana Santos    | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        12 | Leandro Colevati  | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
++-----------+-------------------+------+------------+-------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE TABALUNOS SET nota2 = 0 WHERE matricula = 7;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
++-----------+------------------------+------+------------+-------+-------+-------+
+18 rows in set (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(21,"Cesar","m","2021-10-20","ADS",9.0,9.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+19 rows in set (0.01 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(22,"Karen","f","2021-10-20","ADS",8.0,8.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        22 | Karen                  | f    | 2021-10-20 | ADS   |  8.00 |  8.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+20 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS VALUES(23,"Marcos","m","2021-10-20","ADS",9.0,9.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        22 | Karen                  | f    | 2021-10-20 | ADS   |  8.00 |  8.00 |
+|        23 | Marcos                 | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+21 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=24, nome="Julia", sexo="f", datanasc= "2021-10-20", curso="ADS", nota1=10.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        22 | Karen                  | f    | 2021-10-20 | ADS   |  8.00 |  8.00 |
+|        23 | Marcos                 | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        24 | Julia                  | f    | 2021-10-20 | ADS   | 10.00 | 10.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+22 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=25, nome="Lucas", sexo="m", datanasc= "2021-10-20", curso="ADS", nota1=9.0, nota2=9.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        22 | Karen                  | f    | 2021-10-20 | ADS   |  8.00 |  8.00 |
+|        23 | Marcos                 | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        24 | Julia                  | f    | 2021-10-20 | ADS   | 10.00 | 10.00 |
+|        25 | Lucas                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+23 rows in set (0.00 sec)
+
+mysql> INSERT INTO TABALUNOS  SET matricula=26, nome="Arthur", sexo="m", datanasc= "2021-10-20", curso="ADS", nota1=9.0, nota2=10.0;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM TABALUNOS;
++-----------+------------------------+------+------------+-------+-------+-------+
+| matricula | nome                   | sexo | datanasc   | curso | nota1 | nota2 |
++-----------+------------------------+------+------------+-------+-------+-------+
+|         2 | Marcelo Guimaraes      | m    | 1997-10-20 | SEG   |  5.50 |  8.00 |
+|         3 | Alexandre Cardoso      | m    | 1998-01-10 | ADS   |  8.50 | 10.00 |
+|         4 | Carlos Carvalho        | m    | 1996-05-20 | SEG   |  7.00 |  8.50 |
+|         6 | Mariana Menezes        | f    | 1998-12-25 | ADS   |  4.50 |  8.00 |
+|         7 | Deise Guimaraes        | f    | 1997-01-25 | SEG   |  5.50 |  0.00 |
+|         8 | Ana Luiza Santos       | f    | 1996-05-13 | JOG   |  8.50 |  8.50 |
+|         9 | Vera Mendes            | f    | 1997-11-01 | COM   |  6.50 |  6.50 |
+|        10 | Juliana Santos         | f    | 1998-08-20 | ADS   |  8.50 |  8.00 |
+|        11 | Ricardo Satoshi        | m    | 2021-10-06 | SEG   |  9.50 |  9.00 |
+|        12 | Leandro Colevati       | m    | 2021-10-06 | ADS   |  8.50 |  8.00 |
+|        13 | Antonio Rodrigues      | m    | 2021-10-06 | ADS   |  9.50 |  9.00 |
+|        14 | Wellington De Oliveira | m    | 2021-10-06 | ADS   |  8.50 | 10.00 |
+|        15 | Claudio Benossi        | m    | 2021-10-06 | ADS   |  9.50 | 10.00 |
+|        16 | Eliane Euz‚bio         | f    | 2010-12-25 | ADS   | 10.00 |  9.00 |
+|        17 | Cristina de Oliveira   | f    | 2010-12-25 | ADS   |  8.50 |  9.00 |
+|        18 | Sonia Cristina         | f    | 2010-12-25 | ADS   |  9.00 |  9.00 |
+|        19 | Ana Maria Scardino     | f    | 2010-12-25 | ADS   |  9.50 |  9.50 |
+|        20 | Kelly Cristina         | f    | 2010-12-25 | ADS   |  8.50 |  9.50 |
+|        21 | Cesar                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        22 | Karen                  | f    | 2021-10-20 | ADS   |  8.00 |  8.00 |
+|        23 | Marcos                 | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        24 | Julia                  | f    | 2021-10-20 | ADS   | 10.00 | 10.00 |
+|        25 | Lucas                  | m    | 2021-10-20 | ADS   |  9.00 |  9.00 |
+|        26 | Arthur                 | m    | 2021-10-20 | ADS   |  9.00 | 10.00 |
++-----------+------------------------+------+------------+-------+-------+-------+
+24 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!

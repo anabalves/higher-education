@@ -1,0 +1,250 @@
+body {
+    background-color: white;
+    margin: 0;
+}
+
+/* nav */
+
+#navbar {
+    align-items: center;
+    background-color: #EDF2F4;
+    display: flex;
+    font-family: 'Nunito Sans', sans-serif;
+    justify-content: space-between;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#navbar > div {
+    display: flex;
+    width: 30%;
+}
+
+.item {
+    color: #8D99AE;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.item:hover {
+    color: #2B2D42;
+}
+
+.btn {
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+}
+
+#navbar > button {
+    background-color: #EF233C;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    width: 2.8%;
+}
+
+/* header */
+
+#header {
+    background-color: #EDF2F4;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 12%;
+}
+
+.titulo {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    display: flex;
+    font-size: 419%;
+    justify-content: center;
+    padding-top: 15%;
+    margin-bottom: 3%;
+}
+
+.pesquisar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.pesquisar > input {
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(82, 82, 82, 0.5);
+    width: 77%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    padding-left: 3%;
+    outline: none;
+}
+
+.pesquisar > button {
+    border-radius: 5px;
+    background-color: #D90429;
+    color: white;
+    border: none;
+    width: 15%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.descubra {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* card livro */
+
+.div-livro {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.livro-box {
+    background-color: #2B2D42;
+    margin-top: 5%;
+    border-radius: 30px;
+    width: 20%;
+    height: 240px;
+    padding: 30px;
+    position: absolute;
+    box-shadow: 0px 4px 8px #8D99AE;
+}
+
+.livro-box div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.livro-box > div > h3, p {
+    margin: 0;
+}
+
+.titulo-livro {
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.seu-curso {
+    color: #8D99AE;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+/* main */
+
+#main {
+    background-color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.ver-todos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ver-todos > button {
+    background-color: white;
+    border-radius: 50px;
+    height: 35px;
+    width: 150px;
+    border-color: #2B2D42;
+    color: #2B2D42;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* meus alugueis */
+
+.meus-alugueis {
+    margin-top: 5%;
+}
+
+.meus-alugueis > h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #2B2D42;
+    margin-bottom: 40px;
+}
+
+.section-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.section-cards::after {
+    content: "";
+    flex: auto;
+}
+
+.card {
+    width: 257px;
+    height: 357px;
+    background-color: #EDF2F4;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10%;
+}
+
+.card > div {
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card div:nth-child(1) {
+    padding-top: 30px;
+}
+
+.card > div > h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2B2D42;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card div:nth-child(3) {
+    margin-top: 48px;
+    padding: 0;
+}
+
+.botao-card {
+    background-color: #2B2D42;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white;
+    height: 44px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botao-card > a {
+    color: white;
+    text-decoration: none;
+}

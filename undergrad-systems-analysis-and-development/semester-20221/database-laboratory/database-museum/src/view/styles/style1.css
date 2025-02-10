@@ -1,0 +1,40 @@
+.button
+{
+    -fx-background-color : #FFF;
+    -fx-border-color: #004085;
+    -fx-text-fill: #013063;
+    -fx-cursor: hand;
+}
+.button:hover
+{
+    -fx-background-color :  #004085 ;
+    -fx-text-fill:  #FFF;
+}
+.button:pressed
+{
+    -fx-background-color :  #5AA9E6 ;
+    -fx-text-fill: #FFF;
+}
+
+.button2
+{
+    -fx-background-color :  #5AA9E6;
+    -fx-border-color: #FFF;
+    -fx-text-fill:  #FFF;
+    -fx-cursor: hand;
+}
+
+#btnEsqueceu {
+    -fx-cursor: hand;
+}
+
+.button2:hover
+{
+    -fx-background-color : #013063 ;
+    -fx-text-fill:   #FFF;
+}
+.button2:pressed
+{
+    -fx-background-color : #013063;
+    -fx-text-fill: #FFF;
+}

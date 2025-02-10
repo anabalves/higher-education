@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1010.0" style="-fx-background-color: #004085;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="215.0" style="-fx-background-color: #004085;">
+            <children>
+                <RadioButton fx:id="btnHome" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" selected="true" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Home" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="btnArte" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Arte" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnReserva" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Reserva" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnDoacao" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Doação" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="btnFuncionario" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Funcionário" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+                <VBox prefHeight="251.0" prefWidth="215.0" />
+                <RadioButton fx:id="btnSair" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" stylesheets="@styles/style4.css" text="Sair" textAlignment="CENTER" toggleGroup="$group">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </RadioButton>
+            </children>
+        </VBox>
+        <VBox alignment="CENTER_LEFT" layoutX="215.0" prefHeight="600.0" prefWidth="785.0" stylesheets="@styles/style3.css">
+            <children>
+                <VBox prefHeight="579.0" prefWidth="785.0" style="-fx-background-color: #FFF; -fx-background-radius: 25;">
+                    <children>
+                        <BarChart fx:id="barChart" prefHeight="582.0" prefWidth="785.0" title="Quantidade de Visitas Por Mês">
+                            <xAxis>
+                                <CategoryAxis fx:id="categoryAxis" side="BOTTOM" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis fx:id="NumberAxis" side="LEFT" />
+                            </yAxis>
+                        </BarChart>
+                    </children></VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

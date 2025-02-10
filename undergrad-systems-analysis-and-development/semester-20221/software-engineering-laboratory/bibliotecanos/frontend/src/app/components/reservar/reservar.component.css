@@ -1,0 +1,130 @@
+body {
+    background-color: white;
+    margin: 0;
+}
+
+/* header */
+
+header {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pergunta {
+    padding-top: 10%;
+}
+
+.pergunta {
+    display: flex;
+    justify-content: center;
+}
+
+.subtitulo {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #2B2D42;
+}
+
+.imagem {
+    background: #EDF2F4;
+    border: 4.07313px solid #2B2D42;
+    border-radius: 22.6932px;
+    width: 85.54px;
+    height: 85.54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(1.62925px 3.2585px 6.51701px rgba(43, 45, 66, 0.6));
+    align-items: center;
+}
+
+.livro {
+    align-items: center;
+    display: flex;
+    width: 70%;
+}
+
+.imagem > img {
+    width: 36.58px;
+    height: 61.1px;
+}
+
+.titulo > h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 29.3265px;
+    line-height: 40px;
+    color: #2B2D42;
+    margin: 0;
+    margin-left: 15px;
+}
+
+.titulo > h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.2925px;
+    line-height: 22px;
+    color: #8D99AE;
+    margin: 0;
+    margin-left: 15px;
+}
+
+header > a {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 31px;
+    text-align: right;
+    color: #EF233C;
+    text-decoration: none;
+}
+
+/* main */
+
+main {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.botao > button {
+    cursor: pointer;
+    border: none;  
+    font-size: 18px;
+    width: 200px;
+    height: 50px;
+    background: #EF233C;
+    box-shadow: 0px 2px 12px #EF233C;
+    border-radius: 18px;
+        color: #EDF2F4;
+}
+
+a {
+    color: #EDF2F4;
+    text-decoration: none;
+}
+
+.cancelar {
+    display: flex;
+    font-size: 18px;
+    margin-left: 40px;
+    align-items: center;
+    color: #2B2D42;
+}

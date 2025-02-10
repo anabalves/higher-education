@@ -1,0 +1,163 @@
+mysql> /* INDIQUE O CAMINHO DO BANCO DE DADOS CONSULTORIO.SQL(SCRIPT) */
+mysql> SOURCE C:/TEMP/CONSULTORIO.SQL
+Query OK, 1 row affected (0.02 sec)
+
+Database changed
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> /* 3 - MOSTRE TODAS AS TABELAS */
+mysql> use consultorio;
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_consultorio |
++-----------------------+
+| consulta              |
+| convenio              |
+| especialidade         |
+| medico                |
+| paciente              |
++-----------------------+
+5 rows in set (0.00 sec)
+
+mysql> /* 4 - MOSTRE OS DADOS ARMAZENADOS DE TODAS AS TABELAS */
+mysql> SELECT * FROM CONSULTA;
++------------+----------+------------+----------------+------------+
+| IDPACIENTE | IDMEDICO | DATACONS   | QUEIXA         | PRESCRICAO |
++------------+----------+------------+----------------+------------+
+|          1 |        1 | 2021-11-02 | DOR DE CABECA  | ANALGESICO |
+|          1 |        2 | 2021-11-02 | DOR NAS COSTAS | RAIO X     |
+|          2 |        1 | 2021-11-02 | AZIA           | OMEPRAZOL  |
++------------+----------+------------+----------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONVENIO;
++---------+--------------+---------+
+| CODCONV | NOMECONVenio | FONECON |
++---------+--------------+---------+
+|       1 | SUL AMERICA  | 6012378 |
+|       2 | SAUDE TOTAL  | 999098  |
+|       3 | GOOD HEALTH  | 776544  |
++---------+--------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM ESPECIALIDADE;
++----------+---------------+
+| CODESPEC | NOMEESPEC     |
++----------+---------------+
+|        1 | CLINICA GERAL |
+|        2 | ORTOPEDIA     |
++----------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM MEDICO;
++----------+---------+------+-------+----------+
+| IDMEDICO | NOMEMED | sexo | CRM   | CODESPEC |
++----------+---------+------+-------+----------+
+|        1 | PAULO   | M    | 50345 |        1 |
+|        2 | MARINA  | F    | 12345 |        2 |
++----------+---------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PACIENTE;
++------------+----------------+------+------------+---------+---------+
+| IDPACIENTE | NOMEPAC        | SEXO | DATANASC   | FONE    | CODCONV |
++------------+----------------+------+------------+---------+---------+
+|          1 | JOAO DA SILVA  | M    | 1998-10-10 | 5566667 |       1 |
+|          2 | VERA RODRIGUES | F    | 1992-08-10 | 5543211 |       2 |
+|          3 | PAULO RANGEL   | M    | 1990-04-12 | 8874662 |       3 |
++------------+----------------+------+------------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> /* 5 - MOSTRA OS PACIENTES COM SEUS RESPECTIVOS CONVENIOS */
+mysql> SELECT IDPACIENTE, NOMEPAC, SEXO, DATANASC, FONE, NOMECONVENIO FROM paciente INNER JOIN convenio ON paciente.CODCONV=convenio.CODCONV;
++------------+----------------+------+------------+---------+--------------+
+| IDPACIENTE | NOMEPAC        | SEXO | DATANASC   | FONE    | NOMECONVENIO |
++------------+----------------+------+------------+---------+--------------+
+|          1 | JOAO DA SILVA  | M    | 1998-10-10 | 5566667 | SUL AMERICA  |
+|          2 | VERA RODRIGUES | F    | 1992-08-10 | 5543211 | SAUDE TOTAL  |
+|          3 | PAULO RANGEL   | M    | 1990-04-12 | 8874662 | GOOD HEALTH  |
++------------+----------------+------+------------+---------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> /* 6 - CRIAR UMA VIEW QUE RELACIONE OS DADOS DO PACIENTE COM SEU CONVENIO(PACIENTE_CONVENIO) */
+mysql> CREATE VIEW PACIENTE_CONVENIO AS SELECT IDPACIENTE, NOMEPAC AS NOME_PACIENTE, SEXO, DATANASC AS DATA_NASCIMENTO, FONE, NOMECONVENIO AS NOME_CONVENIO, FONECON AS FONE_CONVENIO FROM paciente INNER JOIN convenio ON paciente.CODCONV=convenio.CODCONV;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SELECT * FROM PACIENTE_CONVENIO;
++------------+----------------+------+-----------------+---------+---------------+---------------+
+| IDPACIENTE | NOME_PACIENTE  | SEXO | DATA_NASCIMENTO | FONE    | NOME_CONVENIO | FONE_CONVENIO |
++------------+----------------+------+-----------------+---------+---------------+---------------+
+|          1 | JOAO DA SILVA  | M    | 1998-10-10      | 5566667 | SUL AMERICA   | 6012378       |
+|          2 | VERA RODRIGUES | F    | 1992-08-10      | 5543211 | SAUDE TOTAL   | 999098        |
+|          3 | PAULO RANGEL   | M    | 1990-04-12      | 8874662 | GOOD HEALTH   | 776544        |
++------------+----------------+------+-----------------+---------+---------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> /* 7 - MOSTRE DA VIEW (PACIENTE_CONVENIO) TODOS OS PACIENTES DO CONVENIO "SUL-AMERICA" */
+mysql> SELECT * FROM PACIENTE_CONVENIO WHERE NOME_CONVENIO = "SUL AMERICA";
++------------+---------------+------+-----------------+---------+---------------+---------------+
+| IDPACIENTE | NOME_PACIENTE | SEXO | DATA_NASCIMENTO | FONE    | NOME_CONVENIO | FONE_CONVENIO |
++------------+---------------+------+-----------------+---------+---------------+---------------+
+|          1 | JOAO DA SILVA | M    | 1998-10-10      | 5566667 | SUL AMERICA   | 6012378       |
++------------+---------------+------+-----------------+---------+---------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> /* 8 - MOSTRA OS DADOS DOS MEDICOS E SUAS ESPECIALIDADES(DESCRITIVO)*/
+mysql> SELECT IDMEDICO, NOMEMED, SEXO, CRM, NOMEESPEC FROM medico INNER JOIN especialidade ON medico.CODESPEC=especialidade.CODESPEC;
++----------+---------+------+-------+---------------+
+| IDMEDICO | NOMEMED | SEXO | CRM   | NOMEESPEC     |
++----------+---------+------+-------+---------------+
+|        1 | PAULO   | M    | 50345 | CLINICA GERAL |
+|        2 | MARINA  | F    | 12345 | ORTOPEDIA     |
++----------+---------+------+-------+---------------+
+2 rows in set (0.01 sec)
+
+mysql> /* 9 - CRIAR UMA VIEW QUE RELACIONA M?DICO COM ESPECIALIDADE*/
+mysql> CREATE VIEW MEDICO_ESPECIALIDADE AS SELECT IDMEDICO, NOMEMED AS NOME_MEDICO, SEXO, CRM, NOMEESPEC AS NOME_ESPECIALIDADE FROM medico INNER JOIN especialidade ON medico.CODESPEC=especialidade.CODESPEC;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM MEDICO_ESPECIALIDADE;
++----------+-------------+------+-------+--------------------+
+| IDMEDICO | NOME_MEDICO | SEXO | CRM   | NOME_ESPECIALIDADE |
++----------+-------------+------+-------+--------------------+
+|        1 | PAULO       | M    | 50345 | CLINICA GERAL      |
+|        2 | MARINA      | F    | 12345 | ORTOPEDIA          |
++----------+-------------+------+-------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> /* 10 - MOSTRAR OS DADOS DAS CONSULTAS IDENTIFICANDO PACIENTES E MEDICOS*/
+mysql> SELECT NOMEPAC, NOMEMED, DATACONS, QUEIXA, PRESCRICAO FROM consulta INNER JOIN paciente ON consulta.IDPACIENTE=paciente.IDPACIENTE INNER JOIN medico ON consulta.IDMEDICO=medico.IDMEDICO;
++----------------+---------+------------+----------------+------------+
+| NOMEPAC        | NOMEMED | DATACONS   | QUEIXA         | PRESCRICAO |
++----------------+---------+------------+----------------+------------+
+| JOAO DA SILVA  | PAULO   | 2021-11-02 | DOR DE CABECA  | ANALGESICO |
+| VERA RODRIGUES | PAULO   | 2021-11-02 | AZIA           | OMEPRAZOL  |
+| JOAO DA SILVA  | MARINA  | 2021-11-02 | DOR NAS COSTAS | RAIO X     |
++----------------+---------+------------+----------------+------------+
+3 rows in set (0.01 sec)
+
+mysql> exit

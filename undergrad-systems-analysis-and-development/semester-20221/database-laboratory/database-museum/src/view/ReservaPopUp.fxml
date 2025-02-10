@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="442.0" prefWidth="400.0" style="-fx-background-color: #fff;" stylesheets="@styles/style1.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReservaPopUpController">
+    <children>
+        <AnchorPane layoutY="154.0" prefHeight="117.0" prefWidth="400.0" style="-fx-background-color: #004085;" AnchorPane.bottomAnchor="375.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="56.0" fitWidth="119.0" layoutX="172.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/images/logo.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="114.0" layoutY="79.0" prefHeight="23.0" prefWidth="173.0" text="Database Museum" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Pane layoutY="114.0" prefHeight="378.0" prefWidth="400.0">
+            <children>
+                <TextField fx:id="tfNome" layoutX="23.0" layoutY="14.0" prefHeight="35.0" prefWidth="354.0" promptText="nome" />
+                <TextField fx:id="tfCpf" layoutX="23.0" layoutY="60.0" prefHeight="35.0" prefWidth="354.0" promptText="cpf" />
+                <TextField fx:id="tfTelefone" layoutX="23.0" layoutY="105.0" prefHeight="35.0" prefWidth="354.0" promptText="telefone" />
+                <ComboBox fx:id="cbQuantidadePessoas" layoutX="23.0" layoutY="152.0" prefHeight="35.0" prefWidth="354.0" promptText="quantidade pessoas" />
+                <DatePicker fx:id="dpDataReserva" layoutX="23.0" layoutY="198.0" prefHeight="35.0" prefWidth="354.0" promptText="data reserva" />
+                <ComboBox fx:id="cbHorarioInicio" layoutX="23.0" layoutY="245.0" prefHeight="35.0" prefWidth="354.0" promptText="horário início" />
+                <Button fx:id="btnOk" layoutX="23.0" layoutY="329.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="173.0" text="Ok" />
+                <Button fx:id="btnLimpar" layoutX="204.0" layoutY="329.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="173.0" text="Limpar" />
+                <Label fx:id="lblErros" alignment="CENTER" layoutX="23.0" layoutY="287.0" prefHeight="35.0" prefWidth="354.0" textFill="#ff6354">
+                    <font>
+                        <Font name="Segoe UI" size="10.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

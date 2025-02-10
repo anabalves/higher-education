@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div>
+            <a class="item" href="/home-admin">Home</a>
+            <a class="item" href="/livro">Livros</a>
+            <a class="item" href="categoria">Categorias</a>
+            <a class="item" href="editora">Editoras</a>
+            <a class="item" href="/relatorio">Relatórios</a>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="descubra">
+            <h1 class="titulo">Todos as Categorias!</h1>
+
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="ver-todos">
+            <a [href]="'/categoria/add'">
+                <button >Adicionar Categoria</button>
+            </a>
+        </div>
+
+        <div class="meus-alugueis">
+            <div class="section-cards">
+                <div *ngFor="let categoria of categorias" class="card">
+                    <div>
+                        <h3>{{categoria.id}}</h3>
+                    </div>
+                    <div>
+                        <h3>{{categoria.nome}}</h3>
+                    </div>
+                    <div>
+                        <button class="botao-card"><a [href]="'/categoria/editar/' + categoria.id">Editar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
