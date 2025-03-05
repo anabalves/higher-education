@@ -6,7 +6,7 @@ Welcome to my **Higher Education Portfolio**! This repository contains a collect
 
 ### **Undergraduate Studies**
    - [**Systems Analysis and Development (2020-1 ~ 2022-2)**](undergrad-systems-analysis-and-development/README.md)  
-     This folder includes all my coursework, projects, and exercises completed during my undergraduate studies in Systems Analysis and Development at the Faculdade de Tecnologia da Zona Leste. Each semester's materials are organized into subfolders for easier navigation.
+     This folder includes all my coursework, projects, and exercises completed during my undergraduate studies in Systems Analysis and Development at the Faculdade de Tecnologia de São Paulo - Campus Leste. Each semester's materials are organized into subfolders for easier navigation.
 
 ### **Additional Learning Resources**
    - [**Coding Challenges**](https://github.com/anabalves/coding-challenges)  
