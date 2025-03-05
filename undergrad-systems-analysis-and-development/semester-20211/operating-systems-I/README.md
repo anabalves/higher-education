@@ -1,5 +1,5 @@
 # Sistemas Operacionais I - 2021-1 
-Esse repositório é dedicado aos exercícios propostos pela matéria de Sistemas Operacionais I do curso de Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia da Zona Leste, ministrada pelo professor Leandro Colevati.
+Esse repositório é dedicado aos exercícios propostos pela matéria de Sistemas Operacionais I do curso de Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de São Paulo - Campus Leste, ministrada pelo professor Leandro Colevati.
 
  - [x] Introdução a Sistemas Operacionais. 
  - [x] Estrutura dos Sistemas Operacionais. 

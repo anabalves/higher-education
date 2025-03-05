@@ -1,5 +1,5 @@
 # Linguagem de Programação - 2020-2 
-Esse repositório é dedicado aos exercícios propostos pela matéria de Linguagem de Programação do curso de Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia da Zona Leste, ministrada pelo professor Ricardo Satoshi Oyakawa.
+Esse repositório é dedicado aos exercícios propostos pela matéria de Linguagem de Programação do curso de Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de São Paulo - Campus Leste, ministrada pelo professor Ricardo Satoshi Oyakawa.
 
  - [x] Variáveis
  - [x] Constantes

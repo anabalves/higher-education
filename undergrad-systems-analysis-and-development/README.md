@@ -1,3 +1,3 @@
-# Systems Analysis and Development (Faculdade de Tecnologia da Zona Leste) - 2020-1 ~ 2022-2
+# Systems Analysis and Development (Faculdade de Tecnologia de São Paulo - Campus Leste) - 2020-1 ~ 2022-2
 
-This repository contains a collection of activities, projects, and exercises completed during my Systems Analysis and Development course at the Faculdade de Tecnologia da Zona Leste. Inside, you'll find a compilation of my accomplishments, coding challenges, and academic assignments that have contributed to my growth as a developer. Feel free to explore and track my progress throughout this learning journey!
+This repository contains a collection of activities, projects, and exercises completed during my Systems Analysis and Development course at the Faculdade de Tecnologia de São Paulo - Campus Leste. Inside, you'll find a compilation of my accomplishments, coding challenges, and academic assignments that have contributed to my growth as a developer. Feel free to explore and track my progress throughout this learning journey!
