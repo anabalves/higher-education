@@ -1,25 +1,55 @@
-# Higher Education Portfolio
+# 🎓 Higher Education
 
-Welcome to my **Higher Education Portfolio**! This repository contains a collection of my academic journey, including my undergraduate studies, postgraduate courses, and other learning projects that I've undertaken in the field of technology and computer science.
+Welcome to my **Higher Education** repository!  
+This is a curated collection of academic work, coursework, and personal projects developed during my undergraduate degree and other formal studies in technology and computer science.
 
-## 📚 Contents
+It reflects my academic foundation, including systems analysis, software engineering principles, algorithms, databases, operating systems, and more.
 
-### **Undergraduate Studies**
-   - [**Systems Analysis and Development (2020-1 ~ 2022-2)**](undergrad-systems-analysis-and-development/README.md)  
-     This folder includes all my coursework, projects, and exercises completed during my undergraduate studies in Systems Analysis and Development at the Faculdade de Tecnologia de São Paulo - Campus Leste. Each semester's materials are organized into subfolders for easier navigation.
+---
 
-### **Additional Learning Resources**
-   - [**Coding Challenges**](https://github.com/anabalves/coding-challenges)  
-     A collection of coding challenges and exercises from platforms like [LeetCode](https://leetcode.com), [HackerRank](https://www.hackerrank.com), and other similar platforms that showcase my problem-solving skills.
-   - [**Online Courses**](https://github.com/anabalves/learning)  
-     This includes materials and projects completed from various online learning platforms like Udemy, DevSuperior, FullCycle, and Origamid.
+## 📁 Repository Structure
 
-## 🛠️ Technologies Used
-- Programming languages: Java, Python, JavaScript, SQL, Go, TypeScript, etc.
-- Tools & frameworks: React.js, Node.js, Spring Boot, Docker, Kubernetes, AWS, and more.
+Each major area of study is organized into its own folder. Inside, you'll find:
 
-## 🔗 Links
-- [LinkedIn](https://www.linkedin.com/in/anabalvess/)
-- [GitHub](https://github.com/anabalves)
+- `README.md`: Overview of the subject or semester
+- Coursework and project folders
+- Supporting files like diagrams, code, and research
 
-Feel free to explore the different sections of this repository to track my progress and growth as a developer and technology professional.
+```shell
+higher-education/
+├── undergrad-systems-analysis-and-development/
+│   ├── semester-01/
+│   ├── semester-02/
+│   └── ...
+├── ...
+└── README.md
+```
+
+---
+
+## 🧠 Topics Covered
+
+Throughout this repository, you’ll find materials related to:
+
+- **Programming Fundamentals** – logic, OOP, algorithms, data structures
+- **Web & Systems Development** – backend, frontend, and fullstack projects
+- **Databases** – relational modeling, SQL queries, normalization
+- **Operating Systems** – process management, memory, scheduling
+- **Software Engineering** – requirements, modeling, versioning
+- **IT Infrastructure** – networks, security, cloud basics
+
+---
+
+## 📌 How to Explore
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/anabalves/higher-education.git
+   ```
+
+2. Navigate to a semester or topic of interest:
+   ```bash
+   cd undergrad-systems-analysis-and-development/semester-03
+   ```
+
+3. Open project folders, read the README.md, and run or analyze the code.
